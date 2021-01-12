@@ -75,7 +75,6 @@ function initClient() {
           center: 'title',
           right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
         },
-        initialDate: '2020-12-12',
         navLinks: true, // can click day/week names to navigate views
         editable: true,
         dayMaxEvents: true, // allow "more" link when too many events
