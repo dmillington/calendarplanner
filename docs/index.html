@@ -1,4 +1,56 @@
+<!doctype html>
 <html>
-<body>
-</body>
+  <head>
+      <meta charset="utf-8">
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Calendar Playground - a playground... for your calendar!</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
+      <link rel="stylesheet" href="calendarplayground-global.css">
+      <link rel="stylesheet" href="calendarplayground-landing.css">
+      <link rel="author" href="humans.txt">
+  </head>
+  <body>
+    <nav>
+      <div class="logo"></div>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item"><a href="https://github.com/dmillington/calendarplanner" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1 class="hero__title">Calendar Playground</h1>
+      <p class="hero__description">Attempt to resolve your scheduling woes</p>
+        <img src="busy-calendar.jpg" alt="busy calendar">
+        <!-- Place your demo code here -->
+      <p>Load your calendar playground!</p>
+      <a href="app" class="button--primary">Get Started</a>
+    </div>
+    <div class="wrapper">
+      <div class="feature">
+        <div class="feature__item">
+          <h3 class="section__title">Privacy</h3>
+          <p>CalendarPlayground is your own private way to assess your calendar and think of new schedules</p>
+        </div>
+        <div class="feature__item">
+          <h3 class="section__title">Read-only Strategizing</h3>
+          <p>Make changes... without actually making changes! What if that recurring meeting was on a Tuesday? </p>
+        </div>
+        <div class="feature__item">
+          <h3 class="section__title">Supports Google Calendars</h3>
+          <p>We currently only support Google Calendar. Other calendars coming soon. CalendarPlayground will allow you to import events from your calendar into a read-only view (visible and accessible only by you).</p>
+        </div>
+      </div>
+      <div class="callout">
+        <p>Load your calendar playground!</p>
+        <a href="app" class="button--primary">Get Started</a>
+      </div>
+    </div>
+    <footer class="footer"><a href="privacypolicy" target="_blank" class="link link--light">Privacy Policy</a>.</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="calendarplayground.js"></script>
+  </body>
 </html>
