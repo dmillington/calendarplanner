@@ -129,7 +129,7 @@ function initClient() {
           'timeMin': (new Date()).toISOString(),
           'showDeleted': false,
           'singleEvents': true,
-          'maxResults': 10,
+          'maxResults': 100,
           'orderBy': 'startTime'
       }).then(function(response) {
         var events = response.result.items;
