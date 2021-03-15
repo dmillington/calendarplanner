@@ -2,3 +2,5 @@ node_modules/
 public/
 .devcontainer/
 .DS_Store
+*.js.map
+*.css.map

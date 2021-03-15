@@ -21,7 +21,7 @@ module.exports = {
   },
   output: {
     filename: 'client.js',
-    path: path.join(__dirname, 'docs/public/js'),
+    path: path.join(__dirname, 'docs/js'),
     library: 'client',
     libraryTarget: 'umd',
   },
