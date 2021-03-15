@@ -7,7 +7,7 @@ import './client.css';
 
 var GoogleAuth; // Google Auth object.
 
-var SCOPE = 'https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/calendar.events.readonly';
+var SCOPE = 'https://www.googleapis.com/auth/calendar.events.readonly';
 
 export function handleClientLoad() {
     // Load the API's client and auth2 modules.
