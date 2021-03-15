@@ -1,3 +1,4 @@
 node_modules/
 public/
 .devcontainer/
+.DS_Store
