@@ -10,7 +10,11 @@
     <button id="sign-in-or-out-button" style="margin-left: 25px">Sign In/Authorize</button>
     <button id="revoke-access-button" style="display: none; margin-left: 25px">Revoke access</button>
     <div id="auth-status" style="display: inline; padding-left: 25px"></div><hr>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <div>
+    OR - Upload an iCal format calendar to be used instead. (only read locally)</br>
+    <label for="avatar">Choose a calendar to import:</label>
+    <input type="file" id="icalFile" name="avatar" accept=".ics">
+    </div>
     <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};client.handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
   </body>
 </html>

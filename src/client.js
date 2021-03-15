@@ -3,6 +3,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
+import ICAL from 'ical.js';
 import './client.css';
 
 var GoogleAuth; // Google Auth object.
@@ -13,6 +14,46 @@ export function handleClientLoad() {
     // Load the API's client and auth2 modules.
     // Call the initClient function after the modules load.
     gapi.load('client:auth2', initClient);
+    // Also setup file upload handler
+    document.getElementById('icalFile').addEventListener('change', handleFileSelect, false);
+}
+
+var event_array;
+var calendar;
+
+function handleFileSelect(evt) {
+  var reader = new FileReader();
+  reader.onload = function (e) {
+    var jcalData = ICAL.parse(e.target.result);
+    var comp = new ICAL.Component(jcalData);
+    event_array = comp.getAllSubcomponents('vevent').map(function(event){ return new ICAL.Event(event); });
+    // initialize calendar and render
+    // Convert to FullCalendar events and load
+    var calendarEl = document.getElementById('calendar');
+
+    calendar = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__.Calendar(calendarEl, {
+      plugins: [ _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_1__.default, _fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_2__.default, _fullcalendar_timegrid__WEBPACK_IMPORTED_MODULE_3__.default, _fullcalendar_list__WEBPACK_IMPORTED_MODULE_4__.default],
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      },
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+      events: {
+      }
+    });
+    for (var i = 0; i < event_array.length; i++) {
+      calendar.addEvent({
+          title: event_array[i].summary,
+          start: event_array[i].startDate.toString(),
+          end: event_array[i].endDate.toString()
+      });
+    }
+    calendar.render();
+  }; 
+  reader.readAsText(evt.target.files[0]);
 }
 
 function initClient() {
