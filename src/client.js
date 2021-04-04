@@ -3,6 +3,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
+import rrulePlugin from '@fullcalendar/rrule';
 import ICAL from 'ical.js';
 import './client.css';
 
@@ -31,8 +32,8 @@ function handleFileSelect(evt) {
     // Convert to FullCalendar events and load
     var calendarEl = document.getElementById('calendar');
 
-    calendar = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__.Calendar(calendarEl, {
-      plugins: [ _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_1__.default, _fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_2__.default, _fullcalendar_timegrid__WEBPACK_IMPORTED_MODULE_3__.default, _fullcalendar_list__WEBPACK_IMPORTED_MODULE_4__.default],
+    calendar = new Calendar(calendarEl, {
+      plugins: [ interactionPlugin, dayGridPlugin, timeGridPlugin, listPlugin, rrulePlugin ],
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
@@ -109,8 +110,8 @@ function initClient() {
       // Convert to FullCalendar events and load
       var calendarEl = document.getElementById('calendar');
 
-      var calendar = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__.Calendar(calendarEl, {
-        plugins: [ _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_1__.default, _fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_2__.default, _fullcalendar_timegrid__WEBPACK_IMPORTED_MODULE_3__.default, _fullcalendar_list__WEBPACK_IMPORTED_MODULE_4__.default],
+      var calendar = new Calendar(calendarEl, {
+        plugins: [ interactionPlugin, dayGridPlugin, timeGridPlugin, listPlugin, rrulePlugin ],
         headerToolbar: {
           left: 'prev,next today',
           center: 'title',
