@@ -46,11 +46,27 @@ function handleFileSelect(evt) {
       }
     });
     for (var i = 0; i < event_array.length; i++) {
-      calendar.addEvent({
-          title: event_array[i].summary,
-          start: event_array[i].startDate.toString(),
-          end: event_array[i].endDate.toString()
-      });
+      var ievent = event_array[i];
+      var rrule = ievent.component.getFirstProperty('rrule');
+
+      if (rrule != null) {
+        var rruleStr = ievent.component.getFirstProperty('dtstart').toICALString() +
+          "\n" + rrule.toICALString();
+
+        calendar.addEvent({
+            title: ievent.summary,
+            start: ievent.startDate.toString(),
+            end: ievent.endDate.toString(),
+            rrule: rruleStr,
+        });
+      }
+      else {
+        calendar.addEvent({
+            title: ievent.summary,
+            start: ievent.startDate.toString(),
+            end: ievent.endDate.toString(),
+        });
+      }
     }
     calendar.render();
   }; 
