@@ -50,8 +50,14 @@ function handleFileSelect(evt) {
       var rrule = ievent.component.getFirstProperty('rrule');
 
       if (rrule != null) {
-        var rruleStr = ievent.component.getFirstProperty('dtstart').toICALString() +
-          "\n" + rrule.toICALString();
+        var dtstart = ievent.component.getFirstProperty('dtstart').toICALString();
+        var rruleStr = dtstart + "\n" + rrule.toICALString();
+
+        // TODO: need to figure out how to get yearly recurring events DTSTART to parse properly
+        if (rrule.toICALString().includes("YEARLY") && dtstart.split("VALUE=DATE:").length > 1) {
+          dtstart = "DTSTART:" + dtstart.split("VALUE=DATE:")[1] + "T000000Z";
+          rruleStr = dtstart + "\n" + rrule.toICALString();
+        }
 
         calendar.addEvent({
             title: ievent.summary,
